@@ -1,5 +1,6 @@
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+// FIX: Using namespace import for react-router-dom to resolve module export errors.
+import * as ReactRouterDOM from 'react-router-dom';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -9,6 +10,8 @@ import GalleryPage from './pages/GalleryPage';
 import OurRestaurantsPage from './pages/OurRestaurantsPage';
 import PrivateEventsPage from './pages/PrivateEventsPage';
 import BookShabbatPage from './pages/BookShabbatPage';
+
+const { HashRouter, Routes, Route } = ReactRouterDOM;
 
 const App: React.FC = () => {
   return (

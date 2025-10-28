@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+// FIX: Using namespace import for react-router-dom to resolve module export errors.
+import * as ReactRouterDOM from 'react-router-dom';
 import { RESTAURANTS_DATA } from '../data';
 import type { Restaurant } from '../types';
+
+const { useParams, Link, useNavigate } = ReactRouterDOM;
 
 const RestaurantDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();

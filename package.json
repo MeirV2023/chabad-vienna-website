@@ -9,17 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@sendgrid/mail": "^8.1.6",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.4",
-    "stripe": "^19.1.0"
-=======
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.4"
->>>>>>> 7d05e2a6df605c993fbd3e80e07f66ca13f618c2
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

@@ -1,6 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// FIX: Using namespace import for react-router-dom to resolve module export errors.
+import * as ReactRouterDOM from 'react-router-dom';
 import { SmallLogo } from './Logo';
+
+const { Link } = ReactRouterDOM;
 
 const Footer: React.FC = () => {
   return (

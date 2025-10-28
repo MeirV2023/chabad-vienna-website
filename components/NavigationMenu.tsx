@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// FIX: Using namespace import for react-router-dom to resolve module export errors.
+import * as ReactRouterDOM from 'react-router-dom';
 import { RESTAURANTS_DATA } from '../data';
 
 interface NavigationMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+const { Link } = ReactRouterDOM;
 
 const NavigationMenu: React.FC<NavigationMenuProps> = ({ isOpen, onClose }) => {
   const [restaurantsOpen, setRestaurantsOpen] = useState(false);

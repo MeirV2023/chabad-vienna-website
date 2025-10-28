@@ -1,6 +1,9 @@
 import React from 'react';
 import { RESTAURANTS_DATA } from '../data';
-import { Link } from 'react-router-dom';
+// FIX: Using namespace import for react-router-dom to resolve module export errors.
+import * as ReactRouterDOM from 'react-router-dom';
+
+const { Link } = ReactRouterDOM;
 
 const OurRestaurantsPage: React.FC = () => {
   return (

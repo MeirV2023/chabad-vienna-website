@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+// FIX: Using namespace import for react-router-dom to resolve module export errors.
+import * as ReactRouterDOM from 'react-router-dom';
 import Header from './Header';
 import NavigationMenu from './NavigationMenu';
 import Footer from './Footer';
@@ -8,6 +9,8 @@ import Logo from './Logo';
 interface LayoutProps {
   children: React.ReactNode;
 }
+
+const { Link, useLocation } = ReactRouterDOM;
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
