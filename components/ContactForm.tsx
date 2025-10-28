@@ -29,7 +29,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ defaultInquiry }) => {
         <select id="inquiry" name="inquiry" defaultValue={defaultInquiry || ""} className="w-full bg-white border border-gray-300 p-3 appearance-none focus:outline-none focus:ring-1 focus:ring-[#8c2b2b] transition">
           <option value="">Select an option</option>
           <option value="general">General Inquiry</option>
-          <option value="private-event">Private Event</option>
         </select>
       </div>
       <div>

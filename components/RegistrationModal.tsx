@@ -65,7 +65,6 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
     const customerDetails = {
         firstName: formData.get('first-name') as string,
         lastName: formData.get('last-name') as string,
-        passportName: formData.get('passport-name') as string,
         email: formData.get('email') as string,
         phone: formData.get('phone') as string,
     };
@@ -186,10 +185,6 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
                   <label htmlFor="last-name" className="block text-sm text-gray-600 mb-1">Last Name: *</label>
                   <input type="text" id="last-name" name="last-name" required className="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-1 focus:ring-[#8c2b2b]" />
                 </div>
-              </div>
-               <div>
-                <label htmlFor="passport-name" className="block text-sm text-gray-600 mb-1">English full name (passport name): *</label>
-                <input type="text" id="passport-name" name="passport-name" required className="w-full border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-1 focus:ring-[#8c2b2b]" />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm text-gray-600 mb-1">Email address: *</label>

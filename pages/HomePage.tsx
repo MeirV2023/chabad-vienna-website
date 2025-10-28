@@ -1,10 +1,17 @@
-import React from 'react';
-// FIX: Using namespace import for react-router-dom to resolve module export errors.
-import * as ReactRouterDOM from 'react-router-dom';
-
-const { Link } = ReactRouterDOM;
+import React, { useState } from 'react';
+import { SHABBAT_DATA } from '../data';
+import RegistrationModal from '../components/RegistrationModal';
 
 const HomePage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedShabbatId, setSelectedShabbatId] = useState(SHABBAT_DATA[0].id);
+  const selectedShabbat = SHABBAT_DATA.find(s => s.id === selectedShabbatId) || SHABBAT_DATA[0];
+  const currentShabbat = SHABBAT_DATA[0];
+
+  const handleScrollToRegister = () => {
+    document.getElementById('registration-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
       <div className="h-screen w-full relative">
@@ -14,14 +21,14 @@ const HomePage: React.FC = () => {
         />
         <div className="absolute inset-0 bg-black bg-opacity-40" />
         <div className="relative z-10 flex flex-col justify-center items-center h-full text-white">
-          <Link to="/book-shabbat">
+          <button onClick={handleScrollToRegister} className="cursor-pointer">
             <h1 
               className="font-display text-6xl md:text-8xl tracking-widest text-white uppercase transition-transform duration-300 hover:scale-105"
               style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
             >
               Book Shabbat
             </h1>
-          </Link>
+          </button>
         </div>
       </div>
 
@@ -55,9 +62,9 @@ const HomePage: React.FC = () => {
               <p className="italic text-gray-700 bg-[#fdf5ef] p-4 rounded-md">✨ Perfect for those who want to experience a cozy and flavorful Shabbat dinner.</p>
               
               <div className="mt-auto pt-6">
-                <Link to="/book-shabbat" className="block w-full text-center bg-[#8c2b2b] text-white py-3 uppercase tracking-widest hover:bg-[#a33a3a] transition-colors duration-300 rounded-md">
+                <button onClick={handleScrollToRegister} className="block w-full text-center bg-[#8c2b2b] text-white py-3 uppercase tracking-widest hover:bg-[#a33a3a] transition-colors duration-300 rounded-md">
                   Book Silver Menu
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -83,14 +90,64 @@ const HomePage: React.FC = () => {
               <p className="italic text-gray-700 bg-[#fdf5ef] p-4 rounded-md">💫 Choose the Gold Menu and make your Shabbat evening truly unforgettable.</p>
               
               <div className="mt-auto pt-6">
-                <Link to="/book-shabbat" className="block w-full text-center bg-[#8c2b2b] text-white py-3 uppercase tracking-widest hover:bg-[#a33a3a] transition-colors duration-300 rounded-md">
+                <button onClick={handleScrollToRegister} className="block w-full text-center bg-[#8c2b2b] text-white py-3 uppercase tracking-widest hover:bg-[#a33a3a] transition-colors duration-300 rounded-md">
                   Book Gold Menu
-                </Link>
+                </button>
               </div>
             </div>
           </div>
+          
+          <div className="mt-20 text-center">
+            <h1 className="font-display text-4xl md:text-5xl text-gray-900 tracking-wider">Chabad of Vienna - Shabbat and holiday in Vienna</h1>
+            <div className="mt-8">
+              <h2 className="text-2xl font-semibold tracking-wide uppercase text-[#8c2b2b]">Shabbat times</h2>
+              <p className="font-display text-3xl mt-2">{currentShabbat.parsha}</p>
+              <p className="text-lg text-gray-600">({currentShabbat.dates})</p>
+              <div className="mt-6 flex justify-center items-center space-x-12">
+                <div>
+                  <p className="text-sm uppercase tracking-widest text-gray-500">Shabbat begins</p>
+                  <p className="text-4xl font-display font-bold text-gray-900">{currentShabbat.begins}</p>
+                </div>
+                <div>
+                  <p className="text-sm uppercase tracking-widest text-gray-500">Shabbat ends</p>
+                  <p className="text-4xl font-display font-bold text-gray-900">{currentShabbat.ends}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16" id="registration-form">
+            <div className="bg-white p-8 md:p-12 rounded-lg shadow-lg max-w-2xl mx-auto border border-gray-200">
+              <h3 className="font-display text-3xl text-center text-gray-800 mb-6">Registration for Shabbat and Holiday</h3>
+              <div className="space-y-4">
+                <label htmlFor="shabbat-select-home" className="block text-lg font-medium text-gray-700">For which date would you like to register?</label>
+                <select 
+                  id="shabbat-select-home" 
+                  value={selectedShabbatId}
+                  onChange={(e) => setSelectedShabbatId(e.target.value)}
+                  className="w-full bg-white border border-gray-300 p-3 text-lg focus:outline-none focus:ring-1 focus:ring-[#8c2b2b] transition"
+                >
+                  {SHABBAT_DATA.map(shabbat => (
+                    <option key={shabbat.id} value={shabbat.id}>{shabbat.parsha} ({shabbat.dates})</option>
+                  ))}
+                </select>
+                <button 
+                  onClick={() => setIsModalOpen(true)}
+                  className="w-full bg-[#8c2b2b] text-white py-4 mt-4 text-lg uppercase tracking-widest hover:bg-[#a33a3a] transition-colors duration-300 rounded-md"
+                >
+                  Register
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
+      <RegistrationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        selectedShabbat={selectedShabbat}
+      />
     </>
   );
 };

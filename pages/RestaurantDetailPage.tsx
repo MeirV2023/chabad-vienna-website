@@ -42,11 +42,10 @@ const RestaurantDetailPage: React.FC = () => {
         <div className="absolute inset-0 bg-black bg-opacity-60" />
         <div className="relative z-10 text-center">
           <h1 className="font-display text-6xl md:text-8xl tracking-widest text-white uppercase">{restaurant.name}</h1>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-2 px-4">
-              <Link to="/private-events" className="nav-button">Private Events</Link>
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-2 px-4">
               <Link to="/about" className="nav-button">About</Link>
               <button onClick={() => document.getElementById('menus')?.scrollIntoView({ behavior: 'smooth' })} className="nav-button">View Menus</button>
-              <button className="nav-button bg-[#8c2b2b] hover:bg-[#a33a3a]">Reservations</button>
+              <Link to="/" className="nav-button bg-[#8c2b2b] hover:bg-[#a33a3a]">Book Shabbat</Link>
           </div>
         </div>
       </div>
@@ -80,7 +79,7 @@ const RestaurantDetailPage: React.FC = () => {
                       <div key={item.name}>
                         <div className="flex justify-between items-baseline">
                           <h4 className="text-lg font-medium tracking-wide text-left">{item.name}</h4>
-                          <span className="text-lg font-medium">{item.price}</span>
+                          {typeof item.price === 'number' && <span className="text-lg font-medium">{item.price}</span>}
                         </div>
                         {item.description && <p className="text-gray-500 text-sm text-left">{item.description}</p>}
                       </div>

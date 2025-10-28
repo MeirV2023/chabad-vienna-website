@@ -4,13 +4,12 @@ import * as ReactRouterDOM from 'react-router-dom';
 import Header from './Header';
 import NavigationMenu from './NavigationMenu';
 import Footer from './Footer';
-import Logo from './Logo';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-const { Link, useLocation } = ReactRouterDOM;
+const { useLocation } = ReactRouterDOM;
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,38 +18,40 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollThreshold = 50;
+      const scrollThreshold = 10; // Trigger change early
       setIsScrolled(window.scrollY > scrollThreshold);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); 
+    handleScroll(); // Set initial state on mount
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
-  // Pages with a full-screen hero image.
+  // Pages with a full-screen hero image where the header is initially transparent.
   const pagesWithHero = ['/', '/about', '/private-events'];
   const hasHeroImage = pagesWithHero.includes(location.pathname) || location.pathname.startsWith('/restaurants');
 
-  // On pages without a hero, content is dark. On pages with a hero, it becomes dark after scrolling.
-  const useDarkContent = !hasHeroImage || isScrolled;
-  const colorClass = useDarkContent ? 'text-gray-800' : 'text-white';
+  // Header is "active" (solid background) only when scrolled AND not on the home page.
+  const isHeaderActive = isScrolled && location.pathname !== '/';
   
-  const isHomePage = location.pathname === '/';
+  // On pages without a hero, we need dark text from the start for visibility.
+  const useDarkTextInitially = !hasHeroImage;
+  
+  // Define on which pages the logo should appear in the header and transform.
+  const pagesWithTransformingLogo = ['/about', '/gallery', '/contact'];
+  const isRestaurantDetail = location.pathname.startsWith('/restaurants/') && location.pathname.split('/').length > 2;
+  const showLogoInHeader = pagesWithTransformingLogo.includes(location.pathname) || isRestaurantDetail;
+
 
   return (
     <div className="relative min-h-screen bg-[#1a1a1a]">
-      {/* The fixed logo is hidden on the homepage to avoid duplication */}
-      {!isHomePage && (
-        <div className={`fixed top-0 left-0 z-40 p-6 md:p-8 ${colorClass} transition-colors duration-300`}>
-          <Link to="/">
-            <Logo />
-          </Link>
-        </div>
-      )}
-
-      <Header onMenuToggle={() => setIsMenuOpen(true)} useDarkContent={useDarkContent} />
+      <Header 
+        isHeaderActive={isHeaderActive}
+        showLogo={showLogoInHeader}
+        useDarkTextInitially={useDarkTextInitially}
+        onMenuToggle={() => setIsMenuOpen(true)}
+      />
       <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <main>{children}</main>
       <Footer />

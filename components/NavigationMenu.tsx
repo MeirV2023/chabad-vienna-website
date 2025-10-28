@@ -34,7 +34,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ isOpen, onClose }) => {
           <button onClick={onClose} className="text-3xl font-thin">&times;</button>
         </div>
         <nav className="p-8 space-y-2">
-          <NavLink to="/book-shabbat">Book Shabbat</NavLink>
+          <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           
           <div>
@@ -51,7 +51,6 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ isOpen, onClose }) => {
             )}
           </div>
 
-          <NavLink to="/private-events">Private Events</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>
           <NavLink to="/contact">Contact</NavLink>
 

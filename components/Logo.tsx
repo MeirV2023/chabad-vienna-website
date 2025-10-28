@@ -11,8 +11,8 @@ const Logo: React.FC = () => {
                 <text x="50" y="70" textAnchor="middle" fontSize="40" fontWeight="bold" fill="currentColor">O</text>
                 <line x1="45" y1="50" x2="55" y2="50" stroke="currentColor" strokeWidth="1"/>
             </svg>
-            <span className="text-[10px] tracking-wider font-light leading-tight block mt-2">
-                Center Vienna<br/>Shabbat Chabad
+            <span className="text-[11px] tracking-wider font-light leading-none block -mt-1">
+                Chabad Opera
             </span>
         </div>
     );
@@ -26,8 +26,8 @@ const SmallLogo: React.FC = () => {
                 <text x="50" y="70" textAnchor="middle" fontSize="40" fontWeight="bold" fill="currentColor">O</text>
                 <line x1="45" y1="50" x2="55" y2="50" stroke="currentColor" strokeWidth="1"/>
             </svg>
-            <span className="text-[7px] tracking-wider font-light leading-tight block mt-1">
-                Center Vienna<br/>Shabbat Chabad
+            <span className="text-[8px] tracking-wider font-light leading-none block -mt-1">
+                Chabad Opera
             </span>
         </div>
     );

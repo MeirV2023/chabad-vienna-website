@@ -3,7 +3,7 @@ import ContactForm from '../components/ContactForm';
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="bg-[#f4f4f4] text-gray-800 min-h-screen pt-32 pb-20 px-6">
+    <div className="bg-[#f4f4f4] text-gray-800 min-h-screen pt-40 pb-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center">
           <h1 className="font-display text-5xl md:text-6xl mb-4 tracking-widest uppercase">Contact Us</h1>
