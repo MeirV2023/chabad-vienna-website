@@ -49,12 +49,27 @@ const HomePage: React.FC = () => {
               </p>
               
               <h4 className="font-semibold text-lg mb-3 tracking-wide">Menu highlights:</h4>
-              <ul className="space-y-2 text-gray-600 mb-6">
-                <li className="flex items-start"><span className="mr-3">🥗</span>A selection of fresh salads – from crispy cabbage and Georgian to creamy hummus with mushrooms</li>
-                <li className="flex items-start"><span className="mr-3">🍲</span>Traditional chicken soup</li>
-                <li className="flex items-start"><span className="mr-3">🍗</span>Chicken breast with mashed potatoes and Austrian-style goulash in red wine sauce</li>
-                <li className="flex items-start"><span className="mr-3">🍞</span>Homemade challah bread</li>
-                <li className="flex items-start"><span className="mr-3">🍎</span>Dessert – apple strudel made in-house</li>
+              <ul className="space-y-2 text-gray-600 mb-6 text-left">
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-[#8c2b2b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>A selection of fresh salads – from crispy cabbage and Georgian to creamy hummus with mushrooms</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-[#8c2b2b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Traditional chicken soup</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-[#8c2b2b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Chicken breast with mashed potatoes and Austrian-style goulash in red wine sauce</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-[#8c2b2b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Homemade challah bread</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-[#8c2b2b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Dessert – apple strudel made in-house</span>
+                </li>
               </ul>
 
               <p className="font-semibold mb-6">Included: <span className="font-normal text-gray-600">soft drinks and wine for Kiddush</span></p>
@@ -77,12 +92,27 @@ const HomePage: React.FC = () => {
               </p>
               
               <h4 className="font-semibold text-lg mb-3 tracking-wide">Menu highlights:</h4>
-              <ul className="space-y-2 text-gray-600 mb-6">
-                <li className="flex items-start"><span className="mr-3">🥗</span>A lavish variety of salads – from classics to gourmet favorites: “Shuba” layered salad with herring, avocado salad, pickled vegetables, and seasonal fruit platters</li>
-                <li className="flex items-start"><span className="mr-3">🍣</span>Appetizer – salmon in tomato sauce with vegetables</li>
-                <li className="flex items-start"><span className="mr-3">🍲</span>Traditional chicken soup</li>
-                <li className="flex items-start"><span className="mr-3">🍗</span>Main courses – chicken breast with mashed potatoes, Austrian-style goulash, and blini stuffed with chicken and mushrooms</li>
-                <li className="flex items-start"><span className="mr-3">🍰</span>Dessert – homemade apple strudel and fresh fruits</li>
+              <ul className="space-y-2 text-gray-600 mb-6 text-left">
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-[#8c2b2b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>A lavish variety of salads – from classics to gourmet favorites: “Shuba” layered salad with herring, avocado salad, pickled vegetables, and seasonal fruit platters</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-[#8c2b2b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Appetizer – salmon in tomato sauce with vegetables</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-[#8c2b2b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Traditional chicken soup</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-[#8c2b2b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Main courses – chicken breast with mashed potatoes, Austrian-style goulash, and blini stuffed with chicken and mushrooms</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-[#8c2b2b] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Dessert – homemade apple strudel and fresh fruits</span>
+                </li>
               </ul>
               
               <p className="font-semibold mb-6">Included: <span className="font-normal text-gray-600">one bottle of red wine and soft drinks</span></p>
@@ -97,22 +127,25 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           
-          <div className="mt-20 text-center">
-            <h1 className="font-display text-4xl md:text-5xl text-gray-900 tracking-wider">Chabad of Vienna - Shabbat and holiday in Vienna</h1>
-            <div className="mt-8">
-              <h2 className="text-2xl font-semibold tracking-wide uppercase text-[#8c2b2b]">Shabbat times</h2>
-              <p className="font-display text-3xl mt-2">{currentShabbat.parsha}</p>
-              <p className="text-lg text-gray-600">({currentShabbat.dates})</p>
-              <div className="mt-6 flex justify-center items-center space-x-12">
-                <div>
-                  <p className="text-sm uppercase tracking-widest text-gray-500">Shabbat begins</p>
-                  <p className="text-4xl font-display font-bold text-gray-900">{currentShabbat.begins}</p>
+          <div className="mt-20">
+            <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 md:p-12 text-center border border-gray-200">
+                <h2 className="font-display text-4xl md:text-5xl text-gray-800 tracking-widest uppercase">Shabbat Times</h2>
+                <div className="w-24 h-px bg-[#8c2b2b] mx-auto my-6"></div>
+                <p className="font-display text-4xl text-gray-900">{currentShabbat.parsha}</p>
+                <p className="text-lg text-gray-600 mt-1 mb-8">({currentShabbat.dates})</p>
+                
+                <div className="flex justify-center items-stretch divide-x divide-gray-300">
+                    <div className="px-8 md:px-12 text-center">
+                        <p className="text-sm uppercase tracking-widest text-gray-500 mb-1">Shabbat begins</p>
+                        <p className="text-5xl font-display font-bold text-gray-900">{currentShabbat.begins}</p>
+                    </div>
+                    <div className="px-8 md:px-12 text-center">
+                        <p className="text-sm uppercase tracking-widest text-gray-500 mb-1">Shabbat ends</p>
+                        <p className="text-5xl font-display font-bold text-gray-900">{currentShabbat.ends}</p>
+                    </div>
                 </div>
-                <div>
-                  <p className="text-sm uppercase tracking-widest text-gray-500">Shabbat ends</p>
-                  <p className="text-4xl font-display font-bold text-gray-900">{currentShabbat.ends}</p>
-                </div>
-              </div>
+                
+                <p className="text-xs text-gray-500 mt-8 tracking-wide">Weekly Torah portion for Chabad of Vienna.</p>
             </div>
           </div>
 
