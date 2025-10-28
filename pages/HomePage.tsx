@@ -43,7 +43,9 @@ const HomePage: React.FC = () => {
             {/* Silver Menu Card */}
             <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
               <h3 className="font-display text-3xl text-[#8c2b2b]">Friday Evening Silver Shabbat Menu</h3>
-              <p className="text-2xl font-display font-bold mb-4 text-gray-700">€30</p>
+              <div className="inline-block bg-[#fdf5ef] px-4 py-1 rounded-full mb-4 mt-2 self-start">
+                  <p className="text-2xl font-display font-bold text-[#8c2b2b]">€30</p>
+              </div>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Step into the warmth of Shabbat with our Silver Shabbat Menu — a perfect balance of tradition and flavor. Enjoy a variety of homemade salads, comforting soup, and delicious main courses prepared with care. From the freshly baked challah to the homemade apple strudel, every detail brings the taste and spirit of home.
               </p>
@@ -86,7 +88,9 @@ const HomePage: React.FC = () => {
             {/* Gold Menu Card */}
             <div className="bg-white p-8 rounded-lg shadow-lg border-2 border-[#8c2b2b] flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
               <h3 className="font-display text-3xl text-[#8c2b2b]">Friday Evening Gold Shabbat Menu</h3>
-              <p className="text-2xl font-display font-bold mb-4 text-gray-700">€45</p>
+              <div className="inline-block bg-[#fdf5ef] px-4 py-1 rounded-full mb-4 mt-2 self-start">
+                  <p className="text-2xl font-display font-bold text-[#8c2b2b]">€45</p>
+              </div>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Celebrate Shabbat in style with our Gold Shabbat Menu — an elevated dining experience for true connoisseurs of taste and tradition. This is more than a meal — it’s a festive journey of flavors, aromas, and hospitality designed to delight every guest.
               </p>
