@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
               className="font-display text-2xl md:text-3xl mt-4 tracking-wider max-w-2xl"
               style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.7)' }}
             >
-              Unforgettable Shabbat in heart of Vienna
+              Unforgettable Shabbat in the center of Vienna
             </p>
           </div>
         </div>
