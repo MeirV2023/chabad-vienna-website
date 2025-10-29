@@ -35,7 +35,6 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ isOpen, onClose }) => {
         </div>
         <nav className="p-8 space-y-2">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
           
           <div>
             <button onClick={() => setRestaurantsOpen(!restaurantsOpen)} className="w-full text-left uppercase tracking-widest text-sm py-3 flex justify-between items-center transition-colors duration-300 hover:text-[#c0a080]">

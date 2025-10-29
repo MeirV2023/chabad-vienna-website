@@ -42,8 +42,7 @@ const RestaurantDetailPage: React.FC = () => {
         <div className="absolute inset-0 bg-black bg-opacity-60" />
         <div className="relative z-10 text-center">
           <h1 className="font-display text-6xl md:text-8xl tracking-widest text-white uppercase">{restaurant.name}</h1>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-2 px-4">
-              <Link to="/about" className="nav-button">About</Link>
+          <div className="mt-12 grid grid-cols-2 gap-2 px-4">
               <button onClick={() => document.getElementById('menus')?.scrollIntoView({ behavior: 'smooth' })} className="nav-button">View Menus</button>
               <Link to="/" className="nav-button bg-[#8c2b2b] hover:bg-[#a33a3a]">Book Shabbat</Link>
           </div>

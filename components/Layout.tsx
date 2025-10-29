@@ -29,7 +29,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, [location.pathname]);
 
   // Pages with a full-screen hero image where the header is initially transparent.
-  const pagesWithHero = ['/', '/about', '/private-events'];
+  const pagesWithHero = ['/', '/private-events'];
   const hasHeroImage = pagesWithHero.includes(location.pathname) || location.pathname.startsWith('/restaurants');
 
   // Header is "active" (solid background) only when scrolled AND not on the home page.
@@ -39,7 +39,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const useDarkTextInitially = !hasHeroImage;
   
   // Define on which pages the logo should appear in the header and transform.
-  const pagesWithTransformingLogo = ['/about', '/gallery', '/contact'];
+  const pagesWithTransformingLogo = ['/gallery', '/contact'];
   const isRestaurantDetail = location.pathname.startsWith('/restaurants/') && location.pathname.split('/').length > 2;
   const showLogoInHeader = pagesWithTransformingLogo.includes(location.pathname) || isRestaurantDetail;
 

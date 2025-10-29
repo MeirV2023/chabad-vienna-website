@@ -237,8 +237,8 @@ export const SHABBAT_TICKET_OPTIONS: ShabbatService[] = [
         day: 'Friday',
         getDatePart: (dates) => parseDateParts(dates).friday,
         options: [
-            { id: 'silver_adult', label: 'Adult', price: 30.00 },
-            { id: 'silver_kids', label: 'Kids (under 13)', price: 0 },
+            { id: 'silver_adult', label: 'Adult', price: 60.00 },
+            { id: 'silver_kids', label: 'Kids (under 13)', price: 30.00 },
         ]
     },
     {
@@ -246,8 +246,8 @@ export const SHABBAT_TICKET_OPTIONS: ShabbatService[] = [
         day: 'Friday',
         getDatePart: (dates) => parseDateParts(dates).friday,
         options: [
-            { id: 'gold_adult', label: 'Adult', price: 45.00 },
-            { id: 'gold_kids', label: 'Kids (under 13)', price: 0 },
+            { id: 'gold_adult', label: 'Adult', price: 95.00 },
+            { id: 'gold_kids', label: 'Kids (under 13)', price: 45.00 },
         ]
     }
 ];

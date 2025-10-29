@@ -3,7 +3,6 @@ import React from 'react';
 import * as ReactRouterDOM from 'react-router-dom';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
 import RestaurantDetailPage from './pages/RestaurantDetailPage';
 import ContactPage from './pages/ContactPage';
 import GalleryPage from './pages/GalleryPage';
@@ -17,7 +16,6 @@ const App: React.FC = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
           <Route path="/restaurants" element={<OurRestaurantsPage />} />
           <Route path="/restaurants/:slug" element={<RestaurantDetailPage />} />
           <Route path="/gallery" element={<GalleryPage />} />

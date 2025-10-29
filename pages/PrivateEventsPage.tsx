@@ -27,7 +27,7 @@ const PrivateEventsPage: React.FC = () => {
 Contact us to discover our private dining rooms and event venues designed for moments that matter.
             </p>
             <div className="mt-12">
-              <ContactForm defaultInquiry="private-event" />
+              <ContactForm />
             </div>
         </div>
       </div>

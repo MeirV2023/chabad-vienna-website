@@ -19,11 +19,16 @@ const AboutPage: React.FC = () => {
             <h2 className="font-display text-4xl mb-4 tracking-widest">OUR PHILOSOPHY</h2>
             <div className="w-24 h-px bg-[#8c2b2b] mx-auto mb-8"></div>
             <p className="text-gray-600 leading-relaxed mb-6">
-                At Chabad Opera, our guiding principle is rooted in the beauty of kosher dining — where tradition meets culinary excellence. We believe that a truly great meal is not just about taste, but about soul — a celebration of heritage, community, and connection.
+                <strong>At Chabad Opera</strong>, our guiding principle is rooted in the beauty of kosher dining — where tradition meets community and the spirit of Shabbat. We believe that a truly great meal is not just about taste, but about soul — a celebration of heritage, connection, and belonging.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">
+                Every Shabbat, we open our doors to guests from around the world, uniting people of all backgrounds around one shared table. Each dish we serve honors the richness of kosher tradition while embracing the warmth and joy of togetherness — creating moments that nourish both body and spirit.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6">
+                Located in the heart of <strong>Vienna</strong> — a city known for its cultural grace, timeless beauty, and deep <strong>Jewish heritage — </strong><strong>Chabad Opera</strong> is more than a place to dine. It is a home away from home, where travelers, locals, and visitors from every corner of the globe can celebrate the peace and holiness of Shabbat together.
             </p>
             <p className="text-gray-600 leading-relaxed">
-                Every dish we create honors the richness of kosher standards while embracing creativity and refinement. From carefully selected ingredients to the warmth of our atmosphere, we aim to craft experiences that nourish both body and spirit.
-                Our mission is to be more than a restaurant — a welcoming haven where every guest can celebrate life’s moments with authenticity, joy, and meaning.
+                Join us at <strong>Tegetthoffstraße 3a, 1010 Wien</strong>, and experience the beauty of Shabbat in Vienna — where tradition, hospitality, and heart come together in perfect harmony.
             </p>
         </div>
       </div>

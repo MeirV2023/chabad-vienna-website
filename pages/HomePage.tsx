@@ -8,10 +8,6 @@ const HomePage: React.FC = () => {
   const selectedShabbat = SHABBAT_DATA.find(s => s.id === selectedShabbatId) || SHABBAT_DATA[0];
   const currentShabbat = SHABBAT_DATA[0];
 
-  const handleScrollToRegister = () => {
-    document.getElementById('registration-form')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <>
       <div className="h-screen w-full relative">
@@ -20,19 +16,42 @@ const HomePage: React.FC = () => {
           style={{ backgroundImage: "url('https://i.wfolio.com/x/Sjpgrm2v20FR6Cth5viRk7BlqOjlhJvA/0gVg86C_OuHWvsaW3lYW0Vd7PyTRQxHM/OwQH1C-ZwyvywCBMA0rMQz-E74JErGGi/GrNY73zTIxBGiKuyUWcVPsI5uXujIbvi/ItQB1Bl9p6LzdBnXPUjo-Q.jpg')" }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-40" />
-        <div className="relative z-10 flex flex-col justify-center items-center h-full text-white">
-          <button onClick={handleScrollToRegister} className="cursor-pointer">
+        <div className="relative z-10 flex flex-col justify-center items-center h-full text-white text-center px-4">
+          <div>
             <h1 
-              className="font-display text-6xl md:text-8xl tracking-widest text-white uppercase transition-transform duration-300 hover:scale-105"
+              className="font-display text-5xl md:text-7xl tracking-widest text-white uppercase"
               style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
             >
               Book Shabbat
             </h1>
-          </button>
+            <p 
+              className="font-display text-2xl md:text-3xl mt-4 tracking-wider max-w-2xl"
+              style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.7)' }}
+            >
+              Unforgettable Shabbat in heart of Vienna
+            </p>
+          </div>
         </div>
       </div>
 
       <section className="bg-[#f4f4f4] text-gray-800 py-20 px-6">
+        <div className="max-w-3xl mx-auto text-center mb-20 bg-white rounded-lg shadow-lg p-8 md:p-12 border border-gray-200">
+            <h2 className="font-display text-4xl mb-4 tracking-widest uppercase">About Us</h2>
+            <div className="w-24 h-px bg-[#8c2b2b] mx-auto mb-8"></div>
+            <p className="text-gray-600 leading-relaxed mb-6 text-left">
+                <strong>At Chabad Opera</strong>, our guiding principle is rooted in the beauty of kosher dining — where tradition meets community and the spirit of Shabbat. We believe that a truly great meal is not just about taste, but about soul — a celebration of heritage, connection, and belonging.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6 text-left">
+                Every Shabbat, we open our doors to guests from around the world, uniting people of all backgrounds around one shared table. Each dish we serve honors the richness of kosher tradition while embracing the warmth and joy of togetherness — creating moments that nourish both body and spirit.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-6 text-left">
+                Located in the heart of <strong>Vienna</strong> — a city known for its cultural grace, timeless beauty, and deep <strong>Jewish heritage — </strong><strong>Chabad Opera</strong> is more than a place to dine. It is a home away from home, where travelers, locals, and visitors from every corner of the globe can celebrate the peace and holiness of Shabbat together.
+            </p>
+            <p className="text-gray-600 leading-relaxed text-left">
+                Join us at <strong>Tegetthoffstraße 3a, 1010 Wien</strong>, and experience the beauty of Shabbat in Vienna — where tradition, hospitality, and heart come together in perfect harmony.
+            </p>
+        </div>
+
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl md:text-5xl mb-4 tracking-widest uppercase">Shabbat Dinner Experience</h2>
@@ -44,7 +63,7 @@ const HomePage: React.FC = () => {
             <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
               <h3 className="font-display text-3xl text-[#8c2b2b]">Friday Evening Silver Shabbat Menu</h3>
               <div className="inline-block bg-[#fdf5ef] px-4 py-1 rounded-full mb-4 mt-2 self-start">
-                  <p className="text-2xl font-display font-bold text-[#8c2b2b]">€30</p>
+                  <p className="text-2xl font-display font-bold text-[#8c2b2b]">€60</p>
               </div>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Step into the warmth of Shabbat with our Silver Shabbat Menu — a perfect balance of tradition and flavor. Enjoy a variety of homemade salads, comforting soup, and delicious main courses prepared with care. From the freshly baked challah to the homemade apple strudel, every detail brings the taste and spirit of home.
@@ -79,7 +98,7 @@ const HomePage: React.FC = () => {
               <p className="italic text-gray-700 bg-[#fdf5ef] p-4 rounded-md">✨ Perfect for those who want to experience a cozy and flavorful Shabbat dinner.</p>
               
               <div className="mt-auto pt-6">
-                <button onClick={handleScrollToRegister} className="block w-full text-center bg-[#8c2b2b] text-white py-3 uppercase tracking-widest hover:bg-[#a33a3a] transition-colors duration-300 rounded-md">
+                <button onClick={() => setIsModalOpen(true)} className="block w-full text-center bg-[#8c2b2b] text-white py-3 uppercase tracking-widest hover:bg-[#a33a3a] transition-colors duration-300 rounded-md">
                   Book Silver Menu
                 </button>
               </div>
@@ -89,7 +108,7 @@ const HomePage: React.FC = () => {
             <div className="bg-white p-8 rounded-lg shadow-lg border-2 border-[#8c2b2b] flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
               <h3 className="font-display text-3xl text-[#8c2b2b]">Friday Evening Gold Shabbat Menu</h3>
               <div className="inline-block bg-[#fdf5ef] px-4 py-1 rounded-full mb-4 mt-2 self-start">
-                  <p className="text-2xl font-display font-bold text-[#8c2b2b]">€45</p>
+                  <p className="text-2xl font-display font-bold text-[#8c2b2b]">€95</p>
               </div>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Celebrate Shabbat in style with our Gold Shabbat Menu — an elevated dining experience for true connoisseurs of taste and tradition. This is more than a meal — it’s a festive journey of flavors, aromas, and hospitality designed to delight every guest.
@@ -124,7 +143,7 @@ const HomePage: React.FC = () => {
               <p className="italic text-gray-700 bg-[#fdf5ef] p-4 rounded-md">💫 Choose the Gold Menu and make your Shabbat evening truly unforgettable.</p>
               
               <div className="mt-auto pt-6">
-                <button onClick={handleScrollToRegister} className="block w-full text-center bg-[#8c2b2b] text-white py-3 uppercase tracking-widest hover:bg-[#a33a3a] transition-colors duration-300 rounded-md">
+                <button onClick={() => setIsModalOpen(true)} className="block w-full text-center bg-[#8c2b2b] text-white py-3 uppercase tracking-widest hover:bg-[#a33a3a] transition-colors duration-300 rounded-md">
                   Book Gold Menu
                 </button>
               </div>
@@ -150,31 +169,6 @@ const HomePage: React.FC = () => {
                 </div>
                 
                 <p className="text-xs text-gray-500 mt-8 tracking-wide">Weekly Torah portion for Chabad of Vienna.</p>
-            </div>
-          </div>
-
-          <div className="mt-16" id="registration-form">
-            <div className="bg-white p-8 md:p-12 rounded-lg shadow-lg max-w-2xl mx-auto border border-gray-200">
-              <h3 className="font-display text-3xl text-center text-gray-800 mb-6">Registration for Shabbat and Holiday</h3>
-              <div className="space-y-4">
-                <label htmlFor="shabbat-select-home" className="block text-lg font-medium text-gray-700">For which date would you like to register?</label>
-                <select 
-                  id="shabbat-select-home" 
-                  value={selectedShabbatId}
-                  onChange={(e) => setSelectedShabbatId(e.target.value)}
-                  className="w-full bg-white border border-gray-300 p-3 text-lg focus:outline-none focus:ring-1 focus:ring-[#8c2b2b] transition"
-                >
-                  {SHABBAT_DATA.map(shabbat => (
-                    <option key={shabbat.id} value={shabbat.id}>{shabbat.parsha} ({shabbat.dates})</option>
-                  ))}
-                </select>
-                <button 
-                  onClick={() => setIsModalOpen(true)}
-                  className="w-full bg-[#8c2b2b] text-white py-4 mt-4 text-lg uppercase tracking-widest hover:bg-[#a33a3a] transition-colors duration-300 rounded-md"
-                >
-                  Register
-                </button>
-              </div>
             </div>
           </div>
 

@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import type { Shabbat } from '../types';
-import { SHABBAT_TICKET_OPTIONS } from '../data';
+import { SHABBAT_TICKET_OPTIONS, SHABBAT_DATA } from '../data';
 
 interface RegistrationModalProps {
   isOpen: boolean;
@@ -23,6 +23,17 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
   const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [modalSelectedShabbatId, setModalSelectedShabbatId] = useState(selectedShabbat.id);
+
+  useEffect(() => {
+    if (isOpen) {
+      setModalSelectedShabbatId(selectedShabbat.id);
+    }
+  }, [isOpen, selectedShabbat.id]);
+
+  const currentShabbatInModal = useMemo(() => {
+    return SHABBAT_DATA.find(s => s.id === modalSelectedShabbatId) || selectedShabbat;
+  }, [modalSelectedShabbatId, selectedShabbat]);
 
   const handleQuantityChange = (optionId: string, delta: number) => {
     setQuantities(prev => {
@@ -76,7 +87,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
                 price_data: {
                     currency: 'eur',
                     product_data: {
-                        name: `${option.label} (${service.title} - ${selectedShabbat.parsha})`,
+                        name: `${option.label} (${service.title} - ${currentShabbatInModal.parsha})`,
                     },
                     unit_amount: Math.round(option.price * 100), // Stripe expects cents
                 },
@@ -92,10 +103,10 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
 
     const registrationData = {
         shabbatInfo: {
-            parsha: selectedShabbat.parsha,
-            dates: selectedShabbat.dates,
-            begins: selectedShabbat.begins,
-            ends: selectedShabbat.ends,
+            parsha: currentShabbatInModal.parsha,
+            dates: currentShabbatInModal.dates,
+            begins: currentShabbatInModal.begins,
+            ends: currentShabbatInModal.ends,
         },
         customerDetails,
         orderedItems: lineItems.map(item => ({
@@ -151,10 +162,23 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
       >
         <form onSubmit={handleSubmit}>
           <div className="p-8 md:p-12 border-b border-gray-200">
+            <div className="mb-8">
+              <label htmlFor="shabbat-select-modal" className="block text-lg font-medium text-gray-700 mb-2">Select your registration date</label>
+              <select 
+                id="shabbat-select-modal" 
+                value={modalSelectedShabbatId}
+                onChange={(e) => setModalSelectedShabbatId(e.target.value)}
+                className="w-full bg-white border border-gray-300 p-3 text-lg focus:outline-none focus:ring-1 focus:ring-[#8c2b2b] transition"
+              >
+                {SHABBAT_DATA.map(shabbat => (
+                  <option key={shabbat.id} value={shabbat.id}>{shabbat.parsha} ({shabbat.dates})</option>
+                ))}
+              </select>
+            </div>
             {SHABBAT_TICKET_OPTIONS.map(service => (
               <div key={service.title} className="mb-8 last:mb-0">
                 <h3 className="text-2xl font-bold font-display mb-2">{service.title}</h3>
-                <p className="text-gray-500 mb-4">Date: {service.day} {service.getDatePart(selectedShabbat.dates)}</p>
+                <p className="text-gray-500 mb-4">Date: {service.day} {service.getDatePart(currentShabbatInModal.dates)}</p>
                 <div className="space-y-4">
                   {service.options.map(option => (
                     <div key={option.id} className="flex items-center justify-between gap-4">
@@ -172,6 +196,9 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
                 </div>
               </div>
             ))}
+            <div className="mt-8 pt-6 border-t border-gray-200">
+                <p className="font-medium text-gray-800 leading-tight">Children (under 3) - free</p>
+            </div>
           </div>
           <div className="p-8 md:p-12">
             <h2 className="font-display text-4xl text-center mb-8">Your details</h2>

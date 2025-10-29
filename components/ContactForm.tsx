@@ -1,10 +1,8 @@
 import React from 'react';
 
-interface ContactFormProps {
-  defaultInquiry?: string;
-}
+interface ContactFormProps {}
 
-const ContactForm: React.FC<ContactFormProps> = ({ defaultInquiry }) => {
+const ContactForm: React.FC<ContactFormProps> = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert("Thank you for your message. We will get back to you shortly.");
@@ -23,13 +21,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ defaultInquiry }) => {
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-gray-500 mb-1">Phone Number - Required</label>
         <input type="tel" id="phone" name="phone" required className="w-full bg-white border border-gray-300 p-3 focus:outline-none focus:ring-1 focus:ring-[#8c2b2b] transition" />
-      </div>
-      <div>
-        <label htmlFor="inquiry" className="block text-sm font-medium text-gray-500 mb-1">What are you getting in touch about? - Optional</label>
-        <select id="inquiry" name="inquiry" defaultValue={defaultInquiry || ""} className="w-full bg-white border border-gray-300 p-3 appearance-none focus:outline-none focus:ring-1 focus:ring-[#8c2b2b] transition">
-          <option value="">Select an option</option>
-          <option value="general">General Inquiry</option>
-        </select>
       </div>
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-500 mb-1">Your Message - Required</label>
