@@ -15,9 +15,9 @@ declare global {
   }
 }
 
-// IMPORTANT: Add your Stripe Publishable Key to your hosting provider's environment variables.
-// For local development, you can create a `.env.local` file.
-const STRIPE_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_51NH2X6J4ScMFK2AcAOA2696TRJIBHG8HzYQNDSZXoPXVDVlX4g9fhBAgsGbhw143do9p3FFjT2RgrHmVROGhyXLX00haYezh7o'; // Fallback for demonstration
+// IMPORTANT: The Stripe Publishable Key MUST be set in your hosting provider's environment variables.
+// For Vercel, create an Environment Variable named NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY.
+const STRIPE_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 
 const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, selectedShabbat }) => {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
@@ -63,6 +63,12 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose, 
     e.preventDefault();
     setIsLoading(true);
     setError(null);
+
+    if (!STRIPE_PUBLISHABLE_KEY) {
+        setError('Stripe has not been configured correctly. Missing publishable key.');
+        setIsLoading(false);
+        return;
+    }
 
     if (!window.Stripe) {
         setError('Stripe.js has not loaded. Please check your internet connection.');
